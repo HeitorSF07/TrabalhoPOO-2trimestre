@@ -6,6 +6,7 @@ public class Concerto extends Evento{
         super.quantiaIngressos = 150;
     }
 
+    @Override
     public void  add_I( Ingresso novo_I){
         if(ingressos_V.size() <= quantiaIngressos){
             if(novo_I.tipo == 'V' && ingressos_VipDisp() <= quantiaIngressos*0.1){

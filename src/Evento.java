@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class Evento {
+public abstract class Evento implements RelatorioReceita{
 
     private String nome;
     private String local;
@@ -23,13 +23,14 @@ public abstract class Evento {
         double soma = 0;
         for(Ingresso atual : this.ingressos_V){
             if(atual != null){
-                soma = atual.valor;
+                soma += atual.valor;
             }
         }
         return soma;
     }
 
     public int assentos_Disp() {
+
         return quantiaIngressos - ingressos_V.size();
     }
 
@@ -64,5 +65,18 @@ public abstract class Evento {
         }
         return quant;
     }
+
+    @Override
+    public double somaTotal_Receita(){
+        double somaTotal = 0;
+        for(Ingresso ingresso : ingressos_V){
+            if(ingresso !=  null){
+                somaTotal += ingresso.valor;
+            }
+        }
+        return somaTotal;
+    }
+
+    public void  extrato_Receita(){};
 
 }

@@ -10,7 +10,7 @@ public class Teatro extends Evento{
         if(ingressos_V.size()<= quantiaIngressos){
             if(novo_I.tipo == 'M' && ingressos_MeiaDisp() <= quantiaIngressos*0.2){
                 this.ingressos_V.add(novo_I);
-            }else{
+            }else if(novo_I.tipo=='V' || novo_I.tipo == 'C'){
                 this.ingressos_V.add(novo_I);
             }
         }
