@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Date;
 
 public class Concerto extends Evento{
@@ -11,8 +12,10 @@ public class Concerto extends Evento{
         if(ingressos_V.size() <= quantiaIngressos){
             if(novo_I.tipo == 'V' && ingressos_VipDisp() <= quantiaIngressos*0.1){
                 this.ingressos_V.add(novo_I);
-            }else{
+            }else if(novo_I.tipo == 'C' || novo_I.tipo == 'M'){
                 this.ingressos_V.add(novo_I);
+            }else{
+                JOptionPane.showMessageDialog(null, "Os ingressos Vip já esgotaram :(","*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

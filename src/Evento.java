@@ -43,7 +43,7 @@ public abstract class Evento implements RelatorioReceita{
                 quant++;
             }
         }
-        return quant;
+        return assentos_Disp()-quant;
     }
 
     public int ingressos_MeiaDisp() {
@@ -53,7 +53,7 @@ public abstract class Evento implements RelatorioReceita{
                 quant++;
             }
         }
-        return quant;
+        return assentos_Disp()-quant;
     }
 
     public int ingressos_VipDisp() {
@@ -63,7 +63,7 @@ public abstract class Evento implements RelatorioReceita{
                 quant++;
             }
         }
-        return quant;
+        return assentos_Disp()-quant;
     }
 
     @Override
@@ -77,6 +77,15 @@ public abstract class Evento implements RelatorioReceita{
         return somaTotal;
     }
 
-    public void  extrato_Receita(){};
+
+    @Override
+    public String toString(){
+        return "==== Receita do Evento ====\nEvento: "+nome+"\nData: "+data+"\nLocal: "+local+"\nTotal da Receita: "+somaTotal_Receita()+"\n===========================";
+    }
+
+    @Override
+    public void  extrato_Receita(){
+        System.out.println(toString());
+    };
 
 }
