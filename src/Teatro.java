@@ -13,9 +13,11 @@ public class Teatro extends Evento {
                 this.ingressos_V.add(novo_I);
             } else if (novo_I.tipo == 'V' || novo_I.tipo == 'C') {
                 this.ingressos_V.add(novo_I);
-            } else {
+            } else if(novo_I.tipo == 'M' && ingressos_MeiaDisp() >= quantiaIngressos * 0.2){
                 JOptionPane.showMessageDialog(null, "Os ingressos Meia-Entrada já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Os ingressos para este evento já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
         }
     }
 
