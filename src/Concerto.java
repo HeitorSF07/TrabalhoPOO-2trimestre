@@ -14,9 +14,11 @@ public class Concerto extends Evento {
                 this.ingressos_V.add(novo_I);
             } else if (novo_I.tipo == 'C' || novo_I.tipo == 'M') {
                 this.ingressos_V.add(novo_I);
-            } else {
+            } else if(novo_I.tipo == 'V' && ingressos_VipDisp() >= quantiaIngressos * 0.1){
                 JOptionPane.showMessageDialog(null, "Os ingressos VIP já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
+        }else{
+             JOptionPane.showMessageDialog(null, "Os ingressos deste evento já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
         }
     }
 
