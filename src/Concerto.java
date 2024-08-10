@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 
 public class Concerto extends Evento {
@@ -14,8 +15,18 @@ public class Concerto extends Evento {
             } else if (novo_I.tipo == 'C' || novo_I.tipo == 'M') {
                 this.ingressos_V.add(novo_I);
             } else {
-                JOptionPane.showMessageDialog(null, "Os ingressos Vip já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Os ingressos VIP já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+
+    @Override
+    public double somaTotal_Receita() {
+        return 0;
+    }
+
+    @Override
+    public void extrato_Receita() {
+
     }
 }

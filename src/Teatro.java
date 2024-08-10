@@ -18,4 +18,14 @@ public class Teatro extends Evento {
             }
         }
     }
+
+    @Override
+    public double somaTotal_Receita() {
+        return 0;
+    }
+
+    @Override
+    public void extrato_Receita() {
+
+    }
 }

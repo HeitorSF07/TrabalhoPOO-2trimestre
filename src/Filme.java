@@ -12,8 +12,13 @@ public class Filme extends Evento {
             if (novo_I.tipo != 'V') {
                 this.ingressos_V.add(novo_I);
             } else {
-                JOptionPane.showMessageDialog(null, "Ingressos Vip não estão disponíveis para esse tipo de evento!", "*ERRO*", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ingressos VIP não estão disponíveis para este tipo de evento!", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+
+    @Override
+    public double somaTotal_Receita() {
+        return 0;
     }
 }

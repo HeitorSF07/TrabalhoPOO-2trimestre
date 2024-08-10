@@ -17,40 +17,51 @@ public class Main {
         eventos.add(orquestra);
 
         // Simulação de venda de ingressos
-        moana.add_I(new Ingresso(new Date(), moana.getprecoIngresso(), 'C'));
-        moana.add_I(new Meia_Entrada(new Date(), moana.getprecoIngresso(), 'M'));
-        orquestra.add_I(new Vip(new Date(), orquestra.getprecoIngresso(), 'V'));
+        moana.add_I(new Ingresso(new Date(), 35.00, 'C'));
+        moana.add_I(new Vip(new Date(), 70.00, 'V'));
+        moana.add_I(new Meia_Entrada(new Date(), 17.50, 'M'));
 
-        // Listar eventos e receita total
-        listarEventos(eventos);
-        exibirReceitaTotalAcumulada(eventos);
+        PTOGQJA.add_I(new Ingresso(new Date(), 15.00, 'C'));
+        PTOGQJA.add_I(new Meia_Entrada(new Date(), 7.50, 'M'));
 
-        // Exibir detalhes de ingressos vendidos para um evento específico
-        mostrarDetalhesIngressos(moana);
-    }
+        UTG.add_I(new Ingresso(new Date(), 45.00, 'C'));
+        UTG.add_I(new Vip(new Date(), 90.00, 'V'));
 
-    private static void listarEventos(ArrayList<Evento> eventos) {
-        String resultado = "Eventos:\n";
+        orquestra.add_I(new Ingresso(new Date(), 50.00, 'C'));
+        orquestra.add_I(new Vip(new Date(), 100.00, 'V'));
+
+        // Exibição de Eventos
+        double receitaTotalAcumulada = 0;
         for (Evento evento : eventos) {
-            resultado += evento.toString() + "\n";
-            resultado += "Ingressos Vendidos: " + evento.ingressosVendidos() + "\n";
-            resultado += "Ingressos Disponíveis: " + evento.assentos_Disp() + "\n";
-            resultado += "Receita: R$ " + evento.somaTotal_Receita() + "\n";
-            resultado += "-----------------------------------\n";
+            double receita = evento.somaTotal_Receita();
+            receitaTotalAcumulada += receita;
+            JOptionPane.showMessageDialog(null,
+                    String.format("==== Evento ====\nNome: %s\nData: %s\nHora: %s\nLocal: %s\nReceita Total: R$ %.2f\nIngressos Vendidos: %d\nIngressos Disponíveis: %d\n",
+                            evento.getNome(), evento.getData(), evento.getHora(), evento.getLocal(), receita, evento.ingressosVendidos(), evento.assentos_Disp()),
+                    "Detalhes do Evento", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, resultado);
-    }
 
-    private static void exibirReceitaTotalAcumulada(ArrayList<Evento> eventos) {
-        double receitaTotal = 0;
+        // Exibição da receita total acumulada
+        JOptionPane.showMessageDialog(null,
+                String.format("Receita Total Acumulada: R$ %.2f", receitaTotalAcumulada),
+                "Receita Total", JOptionPane.INFORMATION_MESSAGE);
+
+        // Exibição de Ingressos para um evento específico (exemplo: "Moana2")
         for (Evento evento : eventos) {
-            receitaTotal += evento.somaTotal_Receita();
-        }
-        JOptionPane.showMessageDialog(null, "Receita Total Acumulada de Todos os Eventos:\n" +
-                "R$ " + receitaTotal);
-    }
+            if (evento.getNome().equals("Moana2")) {
+                evento.listarIngressosVendidos();
+            }else
+            if (evento.getNome().equals("Para Todos Os Garotos Que Já Amei")) {
+                evento.listarIngressosVendidos();
+            }else
+            if (evento.getNome().equals("Um Tal Guimarães")) {
+                evento.listarIngressosVendidos();
+            }else
+            if (evento.getNome().equals("Orquestra")) {
+                evento.listarIngressosVendidos();
+            }
 
-    private static void mostrarDetalhesIngressos(Evento evento) {
-        evento.listarIngressosVendidos();
+        }
     }
 }
+
