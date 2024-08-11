@@ -18,17 +18,17 @@ public class Main {
 
         // Simulação de venda de ingressos
         moana.add_I(new Ingresso(new Date(), 35.00, 'C'));
-        moana.add_I(new Vip(new Date(), 70.00, 'V'));
-        moana.add_I(new Meia_Entrada(new Date(), 17.50, 'M'));
+        moana.add_I(new Vip(new Date(), 35.00, 'V'));
+        moana.add_I(new Meia_Entrada(new Date(), 35.00, 'M'));
 
         PTOGQJA.add_I(new Ingresso(new Date(), 15.00, 'C'));
-        PTOGQJA.add_I(new Meia_Entrada(new Date(), 7.50, 'M'));
+        PTOGQJA.add_I(new Meia_Entrada(new Date(), 15.0, 'M'));
 
         UTG.add_I(new Ingresso(new Date(), 45.00, 'C'));
-        UTG.add_I(new Vip(new Date(), 90.00, 'V'));
+        UTG.add_I(new Vip(new Date(), 45.00, 'V'));
 
         orquestra.add_I(new Ingresso(new Date(), 50.00, 'C'));
-        orquestra.add_I(new Vip(new Date(), 100.00, 'V'));
+        orquestra.add_I(new Vip(new Date(), 50.00, 'V'));
 
         // Exibição de Eventos
         double receitaTotalAcumulada = 0;
