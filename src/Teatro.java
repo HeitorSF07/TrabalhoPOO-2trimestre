@@ -9,11 +9,11 @@ public class Teatro extends Evento {
     @Override
     public void add_I(Ingresso novo_I) {
         if (ingressos_V.size() < quantiaIngressos) {
-            if (novo_I.tipo == 'M' && ingressos_MeiaDisp() < quantiaIngressos * 0.2) {
+            if (novo_I.tipo == 'M' && ingressos_MeiaDisp() <= quantiaIngressos * 0.2 && ingressos_MeiaDisp()>0) {
                 this.ingressos_V.add(novo_I);
             } else if (novo_I.tipo == 'V' || novo_I.tipo == 'C') {
                 this.ingressos_V.add(novo_I);
-            } else if(novo_I.tipo == 'M' && ingressos_MeiaDisp() >= quantiaIngressos * 0.2){
+            } else if(novo_I.tipo == 'M' && ingressos_MeiaDisp() > quantiaIngressos * 0.2 ){
                 JOptionPane.showMessageDialog(null, "Os ingressos Meia-Entrada já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
         }else{

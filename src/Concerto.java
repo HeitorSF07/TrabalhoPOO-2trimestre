@@ -10,16 +10,25 @@ public class Concerto extends Evento {
     @Override
     public void add_I(Ingresso novo_I) {
         if (ingressos_V.size() < quantiaIngressos) {
-            if (novo_I.tipo == 'V' && ingressos_VipDisp() < quantiaIngressos * 0.1) {
+            if (novo_I.tipo == 'V' && ingressos_VipDisp() <= quantiaIngressos * 0.1 && ingressos_VipDisp()>  0 ||(novo_I.tipo == 'C' || novo_I.tipo == 'M')) {
                 this.ingressos_V.add(novo_I);
-            } else if (novo_I.tipo == 'C' || novo_I.tipo == 'M') {
-                this.ingressos_V.add(novo_I);
-            } else if(novo_I.tipo == 'V' && ingressos_VipDisp() >= quantiaIngressos * 0.1){
+            } else {
                 JOptionPane.showMessageDialog(null, "Os ingressos VIP já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
             }
         }else{
              JOptionPane.showMessageDialog(null, "Os ingressos deste evento já esgotaram :(", "*ERRO*", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public int ingressos_VipDisp() {
+        int i = 0;
+        for (Ingresso atual : this.ingressos_V) {
+            if(atual != null && atual.tipo == 'v') {
+                i++;
+            }
+        }
+        return  (int)(quantiaIngressos * 0.1 - i);
     }
 
     @Override
@@ -32,3 +41,6 @@ public class Concerto extends Evento {
 
     }
 }
+
+
+

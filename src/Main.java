@@ -50,14 +50,11 @@ public class Main {
         for (Evento evento : eventos) {
             if (evento.getNome().equals("Moana2")) {
                 evento.listarIngressosVendidos();
-            }else
-            if (evento.getNome().equals("Para Todos Os Garotos Que Já Amei")) {
+            } else if (evento.getNome().equals("Para Todos Os Garotos Que Já Amei")) {
                 evento.listarIngressosVendidos();
-            }else
-            if (evento.getNome().equals("Um Tal Guimarães")) {
+            } else if (evento.getNome().equals("Um Tal Guimarães")) {
                 evento.listarIngressosVendidos();
-            }else
-            if (evento.getNome().equals("Orquestra")) {
+            } else if (evento.getNome().equals("Orquestra")) {
                 evento.listarIngressosVendidos();
             }
 
